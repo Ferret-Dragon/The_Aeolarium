@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://wysneabn557k"]
+
+[ext_resource type="Script" uid="uid://du3ex3b0rxdum" path="res://Scenes/scripts/charge.gd" id="1_8rcoy"]
+[ext_resource type="Texture2D" uid="uid://k8sy3taoh22d" path="res://Assets/Placeholders/smooth_dark_grey_sdg_foil_1.png" id="1_kdiw5"]
+[ext_resource type="Texture2D" uid="uid://dbehgboo5chyk" path="res://Assets/Placeholders/drops.PNG" id="4_amfuy"]
+[ext_resource type="Texture2D" uid="uid://duer4elbtkvp6" path="res://Assets/Furniture/small_star.png" id="4_igt17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh2dw"]
+size = Vector2(186, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejlsy"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjyfm"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_athj6"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efqx5"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(5760, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flifm"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(7680, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27p5l"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(0, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o4ph"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(1920, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywh4t"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(3840, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4syg7"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(5760, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvxbr"]
+atlas = ExtResource("4_amfuy")
+region = Rect2(7680, 1920, 1920, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nw6dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejlsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjyfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_athj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efqx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flifm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27p5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o4ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywh4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4syg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvxbr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_amfuy"]
+_limits = [0.0, 0.94810385, 0.0, 1.0]
+_data = [Vector2(0, 0.94810385), 0.0, 0.5020959, 0, 0, Vector2(0.32170543, 0.06586838), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Node2D" type="Node2D" unique_id=200159483]
+script = ExtResource("1_8rcoy")
+
+[node name="shipcon" type="CharacterBody2D" parent="." unique_id=649000145]
+
+[node name="Sprite2D" type="Sprite2D" parent="shipcon" unique_id=1508380586]
+scale = Vector2(0.43378997, 0.41324204)
+texture = ExtResource("1_kdiw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shipcon" unique_id=892477191]
+shape = SubResource("RectangleShape2D_qh2dw")
+
+[node name="Coins" type="Node2D" parent="." unique_id=783604614]
+position = Vector2(114, -83)
+
+[node name="CoinTemplate" type="AnimatedSprite2D" parent="Coins" unique_id=161091547]
+scale = Vector2(0.05416666, 0.05390625)
+sprite_frames = SubResource("SpriteFrames_nw6dt")
+frame_progress = 0.7662715
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=659373513]
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=638925009]
+z_index = 1
+offset_left = 422.0
+offset_top = -278.0
+offset_right = 462.0
+offset_bottom = -255.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1083939131]
+z_index = -2
+offset_left = -580.0
+offset_top = -324.0
+offset_right = 581.0
+offset_bottom = 327.0
+color = Color(0.043137256, 0, 0.08627451, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background" unique_id=1770271147]
+position = Vector2(581, 324.00003)
+scale = Vector2(0.46243578, -0.46733788)
+amount = 700
+texture = ExtResource("4_igt17")
+lifetime = 7.0
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(1300, 1000)
+gravity = Vector2(-10, 0)
+scale_amount_min = 0.03
+scale_amount_max = 0.04
+scale_amount_curve = SubResource("Curve_amfuy")
+
+[node name="CoinTimer" type="Timer" parent="." unique_id=1108615116]

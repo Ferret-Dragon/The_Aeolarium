@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://qdiicml1461s"]
+
+[ext_resource type="Texture2D" uid="uid://bktf1s8ug3mw7" path="res://Assets/Critters/lizard_sheet.PNG" id="1_nd7il"]
+[ext_resource type="Script" uid="uid://bap2k60tgg7f" path="res://Scenes/lizard.gd" id="1_yap1v"]
+[ext_resource type="Texture2D" uid="uid://cupsqbsya0rwu" path="res://Assets/Critters/lizard_tail_seg3.png" id="3_yap1v"]
+[ext_resource type="Texture2D" uid="uid://dr4tigmn7gjtj" path="res://Assets/Critters/lizard_tail_seg2.png" id="4_nd7il"]
+[ext_resource type="Texture2D" uid="uid://dsjnwcgrjoj4w" path="res://Assets/Critters/lizard_tail_seg1.png" id="5_cbse5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbse5"]
+atlas = ExtResource("1_nd7il")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejxs3"]
+atlas = ExtResource("1_nd7il")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asej3"]
+atlas = ExtResource("1_nd7il")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irq0c"]
+atlas = ExtResource("1_nd7il")
+region = Rect2(5760, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2btm"]
+atlas = ExtResource("1_nd7il")
+region = Rect2(7680, 0, 1920, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yap1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbse5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejxs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asej3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irq0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2btm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irq0c"]
+size = Vector2(866, 287)
+
+[node name="lizard" type="CharacterBody2D" unique_id=961045054]
+script = ExtResource("1_yap1v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=795217070]
+position = Vector2(357, 75)
+sprite_frames = SubResource("SpriteFrames_yap1v")
+offset = Vector2(-357, -75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438474042]
+position = Vector2(59, 88.5)
+shape = SubResource("RectangleShape2D_irq0c")
+
+[node name="tail_segment_1" type="Node2D" parent="." unique_id=1891487009]
+
+[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1" unique_id=1437376286]
+position = Vector2(375, 88)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("5_cbse5")
+offset = Vector2(821.8182, 67.27272)
+
+[node name="tail_segment_2" type="Node2D" parent="tail_segment_1" unique_id=1427541434]
+
+[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1/tail_segment_2" unique_id=1973583360]
+position = Vector2(626, 98)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_nd7il")
+offset = Vector2(170, 45.000015)
+
+[node name="tail_segment_3" type="Node2D" parent="tail_segment_1/tail_segment_2" unique_id=1584085649]
+
+[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1/tail_segment_2/tail_segment_3" unique_id=1280672714]
+position = Vector2(933, 128)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_yap1v")
+offset = Vector2(-502.85718, 18.571411)

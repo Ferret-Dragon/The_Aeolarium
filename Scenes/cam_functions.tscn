@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://cbuueto7e4cqk"]
+
+[ext_resource type="Script" uid="uid://by8x46uff5p0e" path="res://Scenes/scripts/canvas_layer.gd" id="1_bhj3x"]
+[ext_resource type="FontFile" uid="uid://xosko286cyj7" path="res://Assets/Fonts/Solid-Mono.ttf" id="2_a7fni"]
+[ext_resource type="Script" uid="uid://dlwe3tav7wjbd" path="res://Scenes/scripts/message_board.gd" id="3_gj2eg"]
+[ext_resource type="Script" uid="uid://4cbykfossylw" path="res://Scenes/scripts/h_box_container.gd" id="3_w754n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj2eg"]
+font = ExtResource("2_a7fni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qa5aq"]
+font = ExtResource("2_a7fni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w754n"]
+font = ExtResource("2_a7fni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcm6s"]
+font = ExtResource("2_a7fni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7b3yx"]
+font = ExtResource("2_a7fni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1pd5"]
+font = ExtResource("2_a7fni")
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1852160839]
+script = ExtResource("1_bhj3x")
+
+[node name="Control" type="Control" parent="." unique_id=1390028291]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="VBoxContainer" parent="Control" unique_id=699751326]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 223.0
+offset_bottom = 124.0
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="HealthPanel" type="PanelContainer" parent="Control/TopBar" unique_id=1268071707]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TopBar/HealthPanel" unique_id=1628237991]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TopBar/HealthPanel/VBoxContainer" unique_id=125610279]
+layout_mode = 2
+text = "Health"
+label_settings = SubResource("LabelSettings_gj2eg")
+
+[node name="HealthBar" type="ProgressBar" parent="Control/TopBar/HealthPanel/VBoxContainer" unique_id=1381101383]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="EnergyPanel" type="PanelContainer" parent="Control/TopBar" unique_id=1467247383]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TopBar/EnergyPanel" unique_id=1998790945]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TopBar/EnergyPanel/VBoxContainer" unique_id=18413566]
+layout_mode = 2
+text = "Energy"
+label_settings = SubResource("LabelSettings_qa5aq")
+
+[node name="EnergyBar" type="ProgressBar" parent="Control/TopBar/EnergyPanel/VBoxContainer" unique_id=1311819104]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="ShipPanel" type="PanelContainer" parent="Control/TopBar" unique_id=526916475]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TopBar/ShipPanel" unique_id=645132540]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/TopBar/ShipPanel/VBoxContainer" unique_id=1237152479]
+layout_mode = 2
+text = "Ship Power"
+label_settings = SubResource("LabelSettings_w754n")
+vertical_alignment = 1
+
+[node name="ShipBar" type="ProgressBar" parent="Control/TopBar/ShipPanel/VBoxContainer" unique_id=612520094]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="BottomBar" type="HBoxContainer" parent="Control" unique_id=680239243]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 557.0
+offset_right = 322.0
+offset_bottom = 627.0
+mouse_filter = 2
+
+[node name="LizardPanel" type="PanelContainer" parent="Control/BottomBar" unique_id=1122200840]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BottomBar/LizardPanel" unique_id=2127205743]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/BottomBar/LizardPanel/VBoxContainer" unique_id=1830737442]
+layout_mode = 2
+text = "  Zirelisk"
+label_settings = SubResource("LabelSettings_kcm6s")
+
+[node name="LizardBar" type="ProgressBar" parent="Control/BottomBar/LizardPanel/VBoxContainer" unique_id=1505081558]
+layout_mode = 2
+
+[node name="PomratPanel" type="PanelContainer" parent="Control/BottomBar" unique_id=1926591268]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BottomBar/PomratPanel" unique_id=575652054]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/BottomBar/PomratPanel/VBoxContainer" unique_id=704721135]
+layout_mode = 2
+text = "  Pomrat"
+label_settings = SubResource("LabelSettings_7b3yx")
+
+[node name="PomratBar" type="ProgressBar" parent="Control/BottomBar/PomratPanel/VBoxContainer" unique_id=803070501]
+layout_mode = 2
+
+[node name="Inventory" type="PanelContainer" parent="Control" unique_id=1523919134]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 557.0
+offset_right = 468.0
+offset_bottom = 627.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Inventory" unique_id=1230945159]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Inventory/HBoxContainer" unique_id=878142340]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a7fni")
+text = "Inventory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Inventory/HBoxContainer" unique_id=1141143259]
+layout_mode = 2
+script = ExtResource("3_w754n")
+
+[node name="MessageBoard" type="PanelContainer" parent="." unique_id=1697893966]
+offset_left = 831.0
+offset_top = 47.0
+offset_right = 1004.0
+offset_bottom = 87.0
+script = ExtResource("3_gj2eg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageBoard" unique_id=921405402]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MessageBoard/VBoxContainer" unique_id=666792569]
+layout_mode = 2
+text = "!! SYSTEM ALERT !!"
+label_settings = SubResource("LabelSettings_l1pd5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageList" type="VBoxContainer" parent="MessageBoard/VBoxContainer" unique_id=1100753125]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1

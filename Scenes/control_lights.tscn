@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cu7m3op83iva5"]
+
+[ext_resource type="Script" uid="uid://bolvfhg6q3go8" path="res://Scenes/control_lights.gd" id="1_73wea"]
+[ext_resource type="Texture2D" uid="uid://bv7o7kxleg1cr" path="res://Assets/Controls/metal.png" id="1_f2fbv"]
+[ext_resource type="Script" uid="uid://b6lgarhmtcsh1" path="res://Scenes/h_slider.gd" id="2_f2fbv"]
+[ext_resource type="Script" uid="uid://bidcsbliu0y7a" path="res://Scenes/area_2d.gd" id="4_bhm8t"]
+[ext_resource type="FontFile" uid="uid://scrmu3wbwn11" path="res://Assets/Fonts/DS-DIGIB.TTF" id="5_42st4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhm8t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0r86"]
+
+[node name="ControlLights" type="Node2D" unique_id=1539313517]
+script = ExtResource("1_73wea")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=158428566]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1518354807]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -583.0
+offset_top = -330.0
+offset_right = -583.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4525857, 0.4525857, 0.4525857, 1)
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer" unique_id=1778448595]
+script = ExtResource("4_bhm8t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D" unique_id=1427129851]
+position = Vector2(0, -220)
+polygon = PackedVector2Array(20, -2, 575, -5, 577, -109, -578, -105, -577, 543, -332, 543, -332, 95, -311, 63, -267, 35, -236, 32, 249, 34, 277, 41, 305, 56, 324, 76, 335, 102, 336, 543, 577, 545, 576, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1970395390]
+position = Vector2(-3.5527137e-15, 29)
+scale = Vector2(0.41999835, 0.284)
+texture = ExtResource("1_f2fbv")
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Sprite2D" unique_id=1310725762]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 1
+offset_left = -526.1925
+offset_top = 38.732395
+offset_right = 373.8075
+offset_bottom = 138.73239
+scale = Vector2(1.2357378, 5.9030437)
+theme_override_icons/tick = SubResource("ViewportTexture_bhm8t")
+min_value = 0.1
+max_value = 1.5
+step = 0.1
+value = 1.0
+script = ExtResource("2_f2fbv")
+
+[node name="Label" type="Label" parent="CanvasLayer/Sprite2D/HSlider" unique_id=1300532602]
+z_index = 2
+layout_mode = 0
+offset_left = 188.82176
+offset_top = -91.85999
+offset_right = 228.82176
+offset_bottom = -51.859993
+scale = Vector2(12, 3.429)
+theme_override_fonts/font = ExtResource("5_42st4")
+theme_override_font_sizes/font_size = 13
+text = "00.00"
+label_settings = SubResource("LabelSettings_h0r86")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Sprite2D" unique_id=1654971873]
+z_index = 1
+offset_left = -542.8593
+offset_top = -383.8028
+offset_right = -502.8593
+offset_bottom = -343.8028
+scale = Vector2(26.333427, 13.816904)
+color = Color(0, 0.10169991, 0.014807053, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=636616634]

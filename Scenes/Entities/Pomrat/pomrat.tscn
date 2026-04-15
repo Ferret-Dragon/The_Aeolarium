@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bu06oclm62yd8"]
+
+[ext_resource type="Texture2D" uid="uid://lgmntpbruyld" path="res://Assets/Critters/pomrat_sheet.png" id="1_tymyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmrsl"]
+atlas = ExtResource("1_tymyq")
+region = Rect2(0, 0, 1920, 694)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7omng"]
+atlas = ExtResource("1_tymyq")
+region = Rect2(1920, 0, 1920, 694)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u4hp"]
+atlas = ExtResource("1_tymyq")
+region = Rect2(3840, 0, 1920, 694)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_conhv"]
+atlas = ExtResource("1_tymyq")
+region = Rect2(5760, 0, 1920, 694)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imlr8"]
+atlas = ExtResource("1_tymyq")
+region = Rect2(7680, 0, 1920, 694)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxmba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmrsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7omng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u4hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_conhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imlr8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfeqr"]
+radius = 194.20865
+
+[node name="pomrat" type="CharacterBody2D" unique_id=266082682]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1697875481]
+sprite_frames = SubResource("SpriteFrames_oxmba")
+frame_progress = 0.11882126
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1117123372]
+position = Vector2(9, -12)
+shape = SubResource("CircleShape2D_jfeqr")
