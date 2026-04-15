@@ -24,8 +24,18 @@ var lizard_contentment: float = 100.0
 var pomrat_contentment: float = 100.0
 
 # Whether animals have escaped
-var lizard_escaped: bool = false
-var pomrat_escaped: bool = false
+signal lizard_escaped_changed
+
+var lizard_escaped: bool = false:
+	set(value):
+		lizard_escaped = value
+		emit_signal("lizard_escaped_changed")
+signal pomrat_escaped_changed
+
+var pomrat_escaped: bool = false:
+	set(value):
+		pomrat_escaped = value
+		emit_signal("pomrat_escaped_changed")
 
 # Inventory init
 signal inventory_changed

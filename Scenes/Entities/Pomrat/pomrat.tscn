@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bu06oclm62yd8"]
 
 [ext_resource type="Texture2D" uid="uid://lgmntpbruyld" path="res://Assets/Critters/pomrat_sheet.png" id="1_tymyq"]
+[ext_resource type="Script" uid="uid://b151bym86gvck" path="res://Scenes/scripts/pomrat.gd" id="1_xmrsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmrsl"]
 atlas = ExtResource("1_tymyq")
@@ -49,6 +50,7 @@ animations = [{
 radius = 194.20865
 
 [node name="pomrat" type="CharacterBody2D" unique_id=266082682]
+script = ExtResource("1_xmrsl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1697875481]
 sprite_frames = SubResource("SpriteFrames_oxmba")

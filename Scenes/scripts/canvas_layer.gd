@@ -16,16 +16,10 @@ extends CanvasLayer
 	lizard_bar.value = Global.lizard_contentment
 	pomrat_bar.value = Global.pomrat_contentment'''
 	
-const STEAM_REGEN_RATE: float = 5.0
+const STEAM_REGEN_RATE: float = 2.5
 const STEAM_TO_POWER_RATE: float = 3.0
 const LIGHT_DRAIN_MAX: float = 3.0
 const BASE_DRAIN: float = 1.0
-
-const FLICKER_THRESHOLD: float = 0.10
-const BLUE_SHIFT_THRESHOLD: float = 0.30
-
-var flicker_timer: float = 0.0
-var is_flickering: bool = false
 
 @onready var canvas_modulate = get_tree().get_first_node_in_group("canvas_modulate")
 
@@ -35,10 +29,9 @@ func _process(delta):
 	ship_bar.value = Global.ship_power
 	lizard_bar.value = Global.lizard_contentment
 	pomrat_bar.value = Global.pomrat_contentment
+	_danger_check(delta)
 	_regen_steam(delta)
 	_drain_power(delta)
-	_update_light_color()
-	_handle_flicker(delta)
 
 
 func _regen_steam(delta):
@@ -54,40 +47,14 @@ func _drain_power(delta):
 	var light_drain = lerp(BASE_DRAIN, LIGHT_DRAIN_MAX, Global.light_value)
 	Global.ship_power = max(0.0, Global.ship_power - light_drain * delta)
 
-func _update_light_color():
-	if canvas_modulate == null:
-		return
-	var power_ratio = Global.ship_power / Global.max_ship_power
-
-	if power_ratio <= BLUE_SHIFT_THRESHOLD:
-		var blue_ratio = 1.0 - (power_ratio / BLUE_SHIFT_THRESHOLD)
-		var r = lerp(Global.light_value, Global.light_value * 0.3, blue_ratio)
-		var g = lerp(Global.light_value, Global.light_value * 0.5, blue_ratio)
-		var b = lerp(Global.light_value, minf(Global.light_value * 1.5, 1.0), blue_ratio)
-		canvas_modulate.color = Color(r, g, b)
+func _danger_check(delta):
+	var liz_flag = $Control/BottomBar/LizardPanel/VBoxContainer/danger
+	var pom_flag = $Control/BottomBar/PomratPanel/VBoxContainer/danger
+	if Global.lizard_escaped:
+		liz_flag.visible = true
 	else:
-		canvas_modulate.color = Color(
-			Global.light_value,
-			Global.light_value,
-			Global.light_value
-		)
-
-func _handle_flicker(delta):
-	var power_ratio = Global.ship_power / Global.max_ship_power
-
-	if power_ratio > FLICKER_THRESHOLD:
-		is_flickering = false
-		return
-
-	flicker_timer -= delta
-	if flicker_timer <= 0.0:
-		is_flickering = !is_flickering
-		var urgency = 1.0 - power_ratio
-		flicker_timer = randf_range(0.05, 0.4) * (1.0 - urgency * 0.8)
-
-	if canvas_modulate:
-		canvas_modulate.color = Color(
-			canvas_modulate.color.r * (0.05 if is_flickering else 1.0),
-			canvas_modulate.color.g * (0.05 if is_flickering else 1.0),
-			canvas_modulate.color.b * (0.05 if is_flickering else 1.0)
-		)
+		liz_flag.visible = false
+	if Global.pomrat_escaped:
+		pom_flag.visible = true
+	else:
+		pom_flag.visible = false

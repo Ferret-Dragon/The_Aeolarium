@@ -1,7 +1,7 @@
 extends Node
 
 const DRAIN_RATE_LIZ: float = 10#.08
-const DRAIN_RATE_RAT: float = .5
+const DRAIN_RATE_RAT: float = 20#.5
 
 const MIN_CONTENTMENT: float = 0.0
 

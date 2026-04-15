@@ -97,9 +97,9 @@ show_percentage = false
 [node name="BottomBar" type="HBoxContainer" parent="Control" unique_id=680239243]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 557.0
-offset_right = 322.0
-offset_bottom = 627.0
+offset_top = 530.0
+offset_right = 402.0
+offset_bottom = 630.0
 mouse_filter = 2
 
 [node name="LizardPanel" type="PanelContainer" parent="Control/BottomBar" unique_id=1122200840]
@@ -108,6 +108,14 @@ size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BottomBar/LizardPanel" unique_id=2127205743]
 layout_mode = 2
+
+[node name="danger" type="Label" parent="Control/BottomBar/LizardPanel/VBoxContainer" unique_id=1416173530]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.50866026, 0.4568029, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_a7fni")
+text = "⚠️ NOT IN ENCLOSURE ⚠️"
 
 [node name="Label" type="Label" parent="Control/BottomBar/LizardPanel/VBoxContainer" unique_id=1830737442]
 layout_mode = 2
@@ -124,6 +132,13 @@ size_flags_horizontal = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BottomBar/PomratPanel" unique_id=575652054]
 layout_mode = 2
 
+[node name="danger" type="Label" parent="Control/BottomBar/PomratPanel/VBoxContainer" unique_id=2032491364]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.50980395, 0.45490196, 1)
+theme_override_fonts/font = ExtResource("2_a7fni")
+text = "⚠️ NOT IN ENCLOSURE ⚠️"
+
 [node name="Label" type="Label" parent="Control/BottomBar/PomratPanel/VBoxContainer" unique_id=704721135]
 layout_mode = 2
 text = "  Pomrat"
@@ -134,9 +149,9 @@ layout_mode = 2
 
 [node name="Inventory" type="PanelContainer" parent="Control" unique_id=1523919134]
 layout_mode = 0
-offset_left = 393.0
+offset_left = 434.0
 offset_top = 557.0
-offset_right = 468.0
+offset_right = 525.0
 offset_bottom = 627.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Inventory" unique_id=1230945159]
