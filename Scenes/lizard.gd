@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var segments: Array = []
 var segment_history: Array = []

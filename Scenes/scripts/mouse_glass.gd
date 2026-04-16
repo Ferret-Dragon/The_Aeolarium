@@ -5,16 +5,10 @@ func _ready():
 	area.input_pickable = true
 	area.connect("input_event", _on_input_event)
 	Global.connect("pomrat_escaped_changed", _update_collision)
-	
-func _process(delta):
-	_update_collision()
+	_update_collision()  # run once on load in case already escaped
 
 func _update_collision():
-	var colllision_area = $StaticBody2D/CollisionPolygon2D
-	if Global.pomrat_escaped:
-		colllision_area.disabled = true
-	else:
-		colllision_area.disabled = false
+	$StaticBody2D/CollisionPolygon2D.disabled = Global.pomrat_escaped
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:

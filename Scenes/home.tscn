@@ -49,6 +49,7 @@
 [ext_resource type="Script" uid="uid://bk6x5wjbmpgyr" path="res://Scenes/Entities/PC/background.gd" id="38_cco2g"]
 [ext_resource type="Script" uid="uid://ds2fbkwygqsfw" path="res://Scenes/scripts/area_2d.gd" id="39_2pxd8"]
 [ext_resource type="Script" uid="uid://br8assqmxbw0d" path="res://Scenes/scripts/kitchen_area.gd" id="45_sxluj"]
+[ext_resource type="Script" uid="uid://b7antbl7eh3fj" path="res://Scenes/scripts/animals.gd" id="48_m3bm7"]
 [ext_resource type="PackedScene" uid="uid://bu06oclm62yd8" path="res://Scenes/Entities/Pomrat/pomrat.tscn" id="49_mkkvt"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6q42r"]
@@ -765,12 +766,12 @@ polygon = PackedVector2Array(-26, -25, -338, -246, -542, 183, 308, 675, 878, 508
 [node name="Room_hall_front" type="Area2D" parent="World/Layers/Rooms" unique_id=59918048]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Layers/Rooms/Room_hall_front" unique_id=2125559768]
-polygon = PackedVector2Array(102, -329, -118, -198, 69, -105, 68, -135, 32, -149, -47, -185, -57, -203, 2, -238, 47, -215, 56, -291, 166, -347, 279, -295, 306, -271, 386, -227, 332, -187, 389, -156, 411, -150, 415, -185, 442, -189, 507, -147, 416, -90, 389, -112, 318, -83, 206, -145, 128, -101, 110, -36, 303, 67, 488, 128, 897, -201, 572, -388, 368, -502)
+polygon = PackedVector2Array(102, -329, -118, -198, 69, -105, 68, -135, 32, -149, -47, -185, -57, -203, 2, -238, 47, -215, 56, -291, 166, -347, 279, -295, 306, -271, 386, -227, 332, -187, 389, -156, 411, -150, 415, -185, 442, -189, 507, -147, 416, -90, 389, -112, 318, -83, 206, -145, 128, -101, 110, -36, 268, 48, 493, -75, 494, -73, 465, 146, 897, -201, 572, -388, 368, -502)
 
 [node name="Room_hall_back" type="Area2D" parent="World/Layers/Rooms" unique_id=741536892]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Layers/Rooms/Room_hall_back" unique_id=1389739898]
-polygon = PackedVector2Array(378, -224, 298, -267, 272, -264, 249, -253, 166, -299, 81, -243, -24, -231, -30, -197, 70, -141, 69, -108, 32, -64, -148, -163, -538, 73, -847, -113, -998, -21, -619, 228, -422, 250, 33, 458, 469, 139, 109, -27, 129, -100, 205, -147, 320, -86, 387, -112, 416, -93, 462, -120, 508, -152, 434, -188, 412, -180, 409, -146, 333, -188)
+polygon = PackedVector2Array(378, -224, 298, -267, 272, -264, 249, -253, 166, -299, 81, -243, -24, -231, -30, -197, 70, -141, 69, -108, 32, -64, -148, -163, -538, 73, -847, -113, -998, -21, -619, 228, -422, 250, 33, 458, 469, 139, 465, 141, 495, -77, 297.36267, 59.85614, 109, -27, 129, -100, 205, -147, 320, -86, 387, -112, 416, -93, 462, -120, 508, -152, 434, -188, 412, -180, 409, -146, 333, -188)
 
 [node name="Doors" type="Node2D" parent="World/Layers" unique_id=1798336676]
 scale = Vector2(2, 2)
@@ -933,14 +934,16 @@ tile_set = SubResource("TileSet_qv6hk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Layers/Layout/Hall_front/couch3/StaticBody2D" unique_id=48726164]
 scale = Vector2(0.9999999, 0.9999999)
-polygon = PackedVector2Array(752.9413, 94.117645, 0, -311.7647, -170.5882, -223.52939, -170.5882, 70.58823, 664.7058, 547.05884, 2576.4702, -717.64685, 2617.647, -823.5293, 2564.7056, -876.47046, 1817.6469, -1299.9998, 1541.1766, -1129.4119, 1558.8235, -841.1763, 1905.8826, -652.94116, 752.9413, 82.352936, 0, -317.64703)
+build_mode = 1
+polygon = PackedVector2Array(752.9413, 94.117645, 0, -311.7647, -170.5882, -223.52939, -170.5882, 70.58823, 664.7058, 547.05884, 1082.353, 305.8824, 1541.1766, 182.35295, 2094.1177, -158.82355, 2576.4702, -717.64685, 2617.647, -823.5293, 2564.7056, -876.47046, 1817.6469, -1299.9998, 1541.1766, -1129.4119, 1558.8235, -841.1763, 1905.8826, -652.94116, 752.9413, 82.352936, 0, -317.64703)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Layers/Layout/Hall_front/couch3/StaticBody2D" unique_id=1753228891]
 shape = SubResource("SegmentShape2D_55ff8")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World/Layers/Layout/Hall_front/couch3/StaticBody2D" unique_id=781891301]
 position = Vector2(-529.41174, -1523.5294)
-polygon = PackedVector2Array(-188.23526, -135.29407, -229.41174, -152.94116, -1123.5293, 564.7059, -217.64703, 1158.8235, 135.2941, 976.4705, 135.2941, 817.64703, -452.9411, 476.47058, -29.411758, 317.6471, -70.58823, 117.647095, 188.23529, 141.17651, 711.76465, -176.47058, 1176.4705, 105.882324, 1470.5881, -29.411743, 1435.294, -252.94116, 723.52936, -605.8823, -152.94115, -164.70581)
+build_mode = 1
+polygon = PackedVector2Array(-188.23526, -135.29407, -229.41174, -152.94116, -1123.5293, 564.7059, -217.64703, 1158.8235, 135.2941, 976.4705, 135.2941, 817.64703, -452.9411, 476.47058, -29.411758, 317.6471, -70.58823, 117.647095, 188.23529, 141.17651, 711.76465, -176.47058, 1176.4705, 105.882324, 1470.5881, -29.411743, 1435.294, -252.94116, 735.29407, -764.7058, -1129.4116, 394.11768)
 
 [node name="Hall_back" type="Node2D" parent="World/Layers/Layout" unique_id=1798960314]
 z_index = -3
@@ -1095,21 +1098,19 @@ scale = Vector2(1, 1.0017618)
 
 [node name="lizard" type="Node2D" parent="World/Animals" unique_id=1595683391]
 scale = Vector2(1, 1.0023537)
+script = ExtResource("48_m3bm7")
 
 [node name="lizard" parent="World/Animals/lizard" unique_id=961045054 instance=ExtResource("37_plmq6")]
 position = Vector2(679, 199.17946)
 scale = Vector2(0.13, 0.13)
 disable_mode = 2
-collision_layer = 4
-collision_mask = 4
 
-[node name="Node2D" type="Node2D" parent="World/Animals" unique_id=1450965420]
+[node name="pomrat" type="Node2D" parent="World/Animals" unique_id=1450965420]
+script = ExtResource("48_m3bm7")
 
-[node name="pomrat" parent="World/Animals/Node2D" unique_id=266082682 instance=ExtResource("49_mkkvt")]
+[node name="pomrat" parent="World/Animals/pomrat" unique_id=266082682 instance=ExtResource("49_mkkvt")]
 position = Vector2(278, 250.55855)
 scale = Vector2(0.2, 0.2)
-collision_layer = 5
-collision_mask = 4
 
 [node name="Background" type="Node2D" parent="World" unique_id=1526805967]
 position = Vector2(2.3841858e-07, 1.1920929e-07)
