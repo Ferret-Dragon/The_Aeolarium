@@ -8,18 +8,12 @@ var room_z_map := {
 	"Room_hall_back": 1
 }
 
-@onready var body = $CharacterBody2D
+@onready var body = $lizard/CharacterBody2D
 
 func _ready():
-	# Hide until escaped
-	body.visible = false
-	body.set_physics_process(false)
-	
 	# Connect the right signal based on which animal this is
-	if name == "lizard":
-		Global.lizard_escaped_changed.connect(_on_escaped)
-	elif name == "pomrat":
-		Global.pomrat_escaped_changed.connect(_on_escaped)
+	Global.lizard_escaped_changed.connect(_on_escaped)
+
 	
 	# Connect room detection
 	for room in get_tree().get_nodes_in_group("rooms"):
@@ -27,7 +21,6 @@ func _ready():
 		room.body_exited.connect(_on_room_exited.bind(room.name))
 
 func _on_escaped():
-	body.visible = true
 	body.set_physics_process(true)
 
 func _on_room_entered(entered_body: Node2D, room_name: String):

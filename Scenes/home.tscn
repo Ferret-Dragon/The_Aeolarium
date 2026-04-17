@@ -49,8 +49,8 @@
 [ext_resource type="Script" uid="uid://bk6x5wjbmpgyr" path="res://Scenes/Entities/PC/background.gd" id="38_cco2g"]
 [ext_resource type="Script" uid="uid://ds2fbkwygqsfw" path="res://Scenes/scripts/area_2d.gd" id="39_2pxd8"]
 [ext_resource type="Script" uid="uid://br8assqmxbw0d" path="res://Scenes/scripts/kitchen_area.gd" id="45_sxluj"]
-[ext_resource type="Script" uid="uid://b7antbl7eh3fj" path="res://Scenes/scripts/animals.gd" id="48_m3bm7"]
 [ext_resource type="PackedScene" uid="uid://bu06oclm62yd8" path="res://Scenes/Entities/Pomrat/pomrat.tscn" id="49_mkkvt"]
+[ext_resource type="Script" uid="uid://dmqw1lnlvxxaj" path="res://Scenes/scripts/pomrat_walk.gd" id="50_44eka"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6q42r"]
 a = Vector2(-433.5, 430.5)
@@ -474,6 +474,21 @@ texture_region_size = Vector2i(1300, 1000)
 
 [sub_resource type="TileSet" id="TileSet_iowa0"]
 sources/0 = SubResource("TileSetAtlasSource_7q8by")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m3bm7"]
+vertices = PackedVector2Array(93.22656, -603.77344, 1258.4766, -61.023438, 839.1797, 338.34375, 555.10156, 128.39063, 102.17969, 626.7422, -344.64844, 858.03125, -1155.75, 373.20313, -806.14844, -139.02344, 61.476563, 481.09375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(8, 7, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-813, -146.74147, -1170, 376.33698, -345, 869.4682, 114, 631.8867, 73, 485.14526, 555, 140.75203, 840, 351.38095, 1276, -63.887444, 93, -614.9166)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0htr1"]
+vertices = PackedVector2Array(98.546875, -640.4922, 371.72656, -479.4922, 317.14844, -449.70313, 72.21875, -592.4219, -859.0625, -169.85938, -386.8203, -359.71875, -775.2031, -148.22656, -460.97656, 42.703125, -488.52344, 62.859375, -805.35156, -129.0625, -9.4921875, -94.92969, -116.21094, -161.29688, -89.86719, -194.6875, 77.52344, -159.38281, 174.03125, -419.85938, 330.0625, -285.42188, 297.57813, -231.64063, 189.40625, -267.96875, -125.3125, -233.60156, -332.15625, -377.47656, -774.78906, -159.9375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9, 4), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 14, 17, 13, 12), PackedInt32Array(18, 12, 5, 19), PackedInt32Array(20, 6, 4), PackedInt32Array(5, 20, 4), PackedInt32Array(5, 3, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-811, -120.7872, -488, 74.868095, -443, 41.926136, -765, -153.72916, -387, -348.38623, -105, -191.66232, -131, -158.72037, -9, -82.85403, 84, -151.73268, 192, -256.548, 302, -219.61308, 343, -287.4935, 175, -432.2385, -125, -245.56737, -313, -376.33698, 72, -580.97644, 317, -438.22794, 392, -479.15582, 99, -651.85156, -878, -171.69751)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_44eka"]
+vertices = PackedVector2Array(171.92969, 243.71875, 265.28906, 308.6172, 116.64844, 393.70313, -28.15625, 379.6172, 1200.2422, -35.710938, 838.0781, -198.49219, 872.6875, -229.64063, 1254.5703, -44.71875, 785.6172, 320.39844, 504.65625, 127.75, 516.7578, 119.421875, 838.52344, 283.52344, 117.38281, 406.07813, 422, 638.72656, 455.17188, 549.40625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(3, 2, 12), PackedInt32Array(13, 3, 12, 14), PackedInt32Array(13, 14, 8), PackedInt32Array(11, 4, 7), PackedInt32Array(11, 7, 13), PackedInt32Array(11, 13, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1273, -46.917343, 871, -241.5744, 820, -195.65529, 1182, -32.941963, 837, 271.52164, 516, 107.81006, 487, 127.77489, 768, 320.43546, 454, 538.05206, 127, 399.2965, 284, 309.4548, 172, 231.59198, -47, 380.32993, 423, 650.85333)])
 
 [node name="Node2D" type="Node" unique_id=1489632532]
 script = ExtResource("1_d3n2e")
@@ -1021,7 +1036,7 @@ script = ExtResource("35_sxluj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Layers/Layout/Animals/glass/mouse_glass/StaticBody2D" unique_id=982404742]
 position = Vector2(127, 147.24059)
-polygon = PackedVector2Array(39.5, -24.956024, 38.5, -68.87864, -78.5, 33.940216, -53, 54.40416, 45, -11.479767)
+polygon = PackedVector2Array(39.5, -24.956024, 40.5, -35.936676, -78.5, 33.940216, -53, 54.40416, 45, -11.479767)
 
 [node name="lizard_glass" type="TileMapLayer" parent="World/Layers/Layout/Animals/glass" unique_id=1121603683]
 scale = Vector2(2, 2)
@@ -1096,21 +1111,30 @@ scale = Vector2(0.16999996, 0.16999996)
 z_index = 3
 scale = Vector2(1, 1.0017618)
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="World/Animals" unique_id=172744144]
+position = Vector2(-20, -6.9876895)
+navigation_polygon = SubResource("NavigationPolygon_m3bm7")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="World/Animals/NavigationRegion2D" unique_id=857631705]
+navigation_polygon = SubResource("NavigationPolygon_0htr1")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="World/Animals/NavigationRegion2D" unique_id=574229868]
+navigation_polygon = SubResource("NavigationPolygon_44eka")
+
+[node name="pomrat" type="Node2D" parent="World/Animals" unique_id=384645602]
+script = ExtResource("50_44eka")
+
+[node name="pomrat" parent="World/Animals/pomrat" unique_id=266082682 instance=ExtResource("49_mkkvt")]
+position = Vector2(278, 250.55855)
+scale = Vector2(0.1, 0.1)
+
 [node name="lizard" type="Node2D" parent="World/Animals" unique_id=1595683391]
 scale = Vector2(1, 1.0023537)
-script = ExtResource("48_m3bm7")
 
 [node name="lizard" parent="World/Animals/lizard" unique_id=961045054 instance=ExtResource("37_plmq6")]
 position = Vector2(679, 199.17946)
 scale = Vector2(0.13, 0.13)
 disable_mode = 2
-
-[node name="pomrat" type="Node2D" parent="World/Animals" unique_id=1450965420]
-script = ExtResource("48_m3bm7")
-
-[node name="pomrat" parent="World/Animals/pomrat" unique_id=266082682 instance=ExtResource("49_mkkvt")]
-position = Vector2(278, 250.55855)
-scale = Vector2(0.2, 0.2)
 
 [node name="Background" type="Node2D" parent="World" unique_id=1526805967]
 position = Vector2(2.3841858e-07, 1.1920929e-07)
