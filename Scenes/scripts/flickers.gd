@@ -1,7 +1,7 @@
 extends Polygon2D
 
 @export var flicker_speed_min: float = 0.05
-@export var flicker_speed_max: float = 0.2
+@export var flicker_speed_max: float = 1.0
 @export var base_max_alpha: float = 0.05  # max opacity when power is full
 @export var fade_speed: float = 4.0      # how fast it fades in/out
 

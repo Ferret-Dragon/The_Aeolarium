@@ -16,8 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://d07psblfsi1uk" path="res://Assets/WallFloorDoorWstroke/p_a_wall.png" id="10_bih4p"]
 [ext_resource type="Texture2D" uid="uid://b480ifeisgn78" path="res://Assets/WallFloorDoorWstroke/k_c_wall.png" id="11_cmu2r"]
 [ext_resource type="Texture2D" uid="uid://dmu1snlgpmdsp" path="res://Assets/WallFloorDoorWstroke/back_right_door.png" id="12_mkkvt"]
+[ext_resource type="Texture2D" uid="uid://cv10bhpan6cab" path="res://Assets/Placeholders/smoke.png" id="13_44eka"]
 [ext_resource type="Texture2D" uid="uid://clxguthxcac4n" path="res://Assets/WallFloorDoorWstroke/front_right_door.png" id="13_m3bm7"]
 [ext_resource type="Texture2D" uid="uid://dgsellrgthkfg" path="res://Assets/WallFloorDoorWstroke/back_left_door.png" id="14_0htr1"]
+[ext_resource type="Script" uid="uid://bumg5maxxw4le" path="res://Scenes/scripts/flickers.gd" id="14_jv2cb"]
 [ext_resource type="Texture2D" uid="uid://csmm0ki3r8wg2" path="res://Assets/WallFloorDoorWstroke/front_left_door.png" id="15_44eka"]
 [ext_resource type="Texture2D" uid="uid://b0iwwc03mo4my" path="res://Assets/WallFloorDoorWstroke/ship_ext.png" id="16_jv2cb"]
 [ext_resource type="PackedScene" uid="uid://bxp7mkbwehuno" path="res://Scenes/Entities/PC/Player_Character.tscn" id="17_62iqh"]
@@ -185,6 +187,10 @@ texture_region_size = Vector2i(900, 530)
 
 [sub_resource type="TileSet" id="TileSet_a2agt"]
 sources/0 = SubResource("TileSetAtlasSource_gyt7b")
+
+[sub_resource type="Curve" id="Curve_44eka"]
+_data = [Vector2(0, 0.46806395), 0.0, 0.0, 0, 0, Vector2(0.5232558, 0.67564875), 0.0, 0.0, 0, 0, Vector2(1, 0.55023295), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l651o"]
 radius = 135.23683
@@ -613,7 +619,6 @@ script = ExtResource("18_kx4oe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player_Character" unique_id=759148638]
 layer = -30
-visible = false
 
 [node name="Background" type="ColorRect" parent="Player_Character/CanvasLayer" unique_id=512332297]
 z_index = -17
@@ -629,6 +634,7 @@ offset_bottom = 1407.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.5949593, -2.7389183)
+mouse_filter = 2
 color = Color(0.041365422, 3.328392e-05, 0.086691596, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Player_Character/CanvasLayer/Background" unique_id=113556211]
@@ -687,7 +693,28 @@ scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray(0, 0, 11, 0, 249, 255, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_a2agt")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ground" unique_id=671346389]
+z_index = -1
+position = Vector2(-416, 302.49997)
+rotation = 1.4700661
+scale = Vector2(0.08, 0.08)
+amount = 12
+texture = ExtResource("13_44eka")
+lifetime = 3.05
+speed_scale = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(800, 1200)
+gravity = Vector2(-120, 200)
+scale_amount_curve = SubResource("Curve_44eka")
+
 [node name="World" type="Node2D" parent="." unique_id=1194276524]
+
+[node name="Darkness" type="Node2D" parent="World" unique_id=1680040576]
+
+[node name="Polygon2D" type="Polygon2D" parent="World/Darkness" unique_id=2031529139]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1193, 410, -352, 903, 494, 633, 1285, -52, 1210, -589, 1053, -698, 858, -773, 646, -823, 437, -830, 239, -792, 101, -776, -845, -257, -1198, 275)
+script = ExtResource("14_jv2cb")
 
 [node name="Tasks" type="Node" parent="World" unique_id=1079963648]
 
@@ -831,7 +858,6 @@ tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_mjx0w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Layers/Layout/Control/control_pannel" unique_id=698566379]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Layers/Layout/Control/control_pannel/StaticBody2D" unique_id=59800521]
 position = Vector2(286.25, -270.75)
