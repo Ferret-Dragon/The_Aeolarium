@@ -24,6 +24,7 @@ font = ExtResource("2_a7fni")
 font = ExtResource("2_a7fni")
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1852160839]
+layer = 0
 script = ExtResource("1_bhj3x")
 
 [node name="Control" type="Control" parent="." unique_id=1390028291]
@@ -115,7 +116,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.50866026, 0.4568029, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_a7fni")
-text = "⚠️ NOT IN ENCLOSURE ⚠️"
+theme_override_font_sizes/font_size = 14
+text = "⚠ NOT IN ENCLOSURE ⚠"
 
 [node name="Label" type="Label" parent="Control/BottomBar/LizardPanel/VBoxContainer" unique_id=1830737442]
 layout_mode = 2
@@ -137,7 +139,8 @@ visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.50980395, 0.45490196, 1)
 theme_override_fonts/font = ExtResource("2_a7fni")
-text = "⚠️ NOT IN ENCLOSURE ⚠️"
+theme_override_font_sizes/font_size = 14
+text = "⚠ NOT IN ENCLOSURE ⚠"
 
 [node name="Label" type="Label" parent="Control/BottomBar/PomratPanel/VBoxContainer" unique_id=704721135]
 layout_mode = 2
