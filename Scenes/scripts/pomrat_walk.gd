@@ -13,6 +13,7 @@ var room_z_map := {
 @onready var pomrat = $pomrat  # adjust to wherever you instance it
 
 func _ready():
+	pomrat.z_index = 7
 
 	if not Global.pomrat_escaped_changed.is_connected(_on_escaped):
 		Global.pomrat_escaped_changed.connect(_on_escaped)
@@ -22,7 +23,6 @@ func _on_escaped():
 	if pomrat:
 		pomrat.start_wandering()
 		pomrat.timer.start()  # kick off wandering
-		pomrat.z_index = 7
 
 
 func _on_room_entered(entered_body: Node2D, room_name: String):

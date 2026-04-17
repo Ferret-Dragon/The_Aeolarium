@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 var segments: Array = []
 var segment_history: Array = []
-var history_length: int = 20
+var history_length: int = 0
 
 @export var segment_distance: int = 0
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 50.0
-const WANDER_INTERVAL_MIN = 0.01
-const WANDER_INTERVAL_MAX = 2.7
+const SPEED = 200.0
+const WANDER_INTERVAL_MIN = 0.5
+const WANDER_INTERVAL_MAX = 3.7
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
@@ -18,7 +18,7 @@ const WANDER_INTERVAL_MAX = 2.7
 
 var _ready_complete := false
 var _wandering := false
-var home_pos = Vector2(278, 250.55)
+var home_pos = Vector2(679.0, 199.179)
 var exit_pos = Vector2(400, 150)
 
 func _ready():
