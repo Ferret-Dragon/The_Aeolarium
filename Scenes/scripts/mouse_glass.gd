@@ -9,6 +9,6 @@ func _ready():
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if Global.inventory.has("pomrat_food"):
-				Global.inventory.erase("pomrat_food")  # remove just this item
+			if Global.inventory.has("pom_food"):
+				Global.inventory.erase("pom_food")  # remove just this item
 				Global.pomrat_contentment = 100
