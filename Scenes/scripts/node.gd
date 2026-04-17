@@ -17,8 +17,10 @@ func _process(delta):
 	escape_check_timer += delta
 	if escape_check_timer >= escape_check_interval:
 		escape_check_timer = 0.0
-		_check_escape("lizard", Global.lizard_contentment)
-		_check_escape("pomrat", Global.pomrat_contentment)
+		if not Global.lizard_escaped:
+			_check_escape("lizard", Global.lizard_contentment)
+		if not Global.pomrat_escaped:
+			_check_escape("pomrat", Global.pomrat_contentment)
 
 func _check_escape(animal: String, contentment: float):
 	# Higher contentment = lower escape chance

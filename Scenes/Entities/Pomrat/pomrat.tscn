@@ -47,7 +47,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfeqr"]
-radius = 134.62912
+radius = 87.02299
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmrsl"]
+radius = 205.64532
 
 [node name="pomrat" type="CharacterBody2D" unique_id=993797346]
 script = ExtResource("1_xmrsl")
@@ -65,5 +68,11 @@ autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=970080842]
 path_postprocessing = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1666880383]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=33865563]
+position = Vector2(2, -4)
+shape = SubResource("CircleShape2D_xmrsl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

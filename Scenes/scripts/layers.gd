@@ -48,6 +48,8 @@ func _connect_rooms():
 # ROOM ENTER
 # ----------------------------
 func _on_room_entered(body: Node, room_name: String) -> void:
+	body.z_index = room_z_map.get(room_name, Z_PLAYER_DEFAULT)
+	print(body, " has entered ", room_name, ".  z index: ", body.z_index)
 	if body != player:
 		return
 	current_room = room_name
@@ -57,7 +59,7 @@ func _on_room_entered(body: Node, room_name: String) -> void:
 		if door:
 			door.visible = false
 
-	player.z_index = room_z_map.get(room_name, Z_PLAYER_DEFAULT)
+	body.z_index = room_z_map.get(room_name, Z_PLAYER_DEFAULT)
 
 # ----------------------------
 # ROOM EXIT

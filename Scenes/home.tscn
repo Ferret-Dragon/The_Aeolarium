@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://7ru46yj420wx" path="res://Assets/WallFloorDoorWstroke/Outer_Walls.png" id="5_6mqkx"]
 [ext_resource type="Texture2D" uid="uid://752xfikplg2i" path="res://Assets/Placeholders/floor_mat.png" id="5_ridcw"]
 [ext_resource type="Texture2D" uid="uid://dvt12768hhpt8" path="res://Assets/Placeholders/dust.png" id="6_bih4p"]
-[ext_resource type="Script" uid="uid://yw5tffummdj5" path="res://Scenes/scripts/world.gd" id="6_fq71w"]
 [ext_resource type="Texture2D" uid="uid://dsx5tw5ptdkf1" path="res://Assets/WallFloorDoorWstroke/front_left_wall.png" id="6_vdfna"]
 [ext_resource type="Texture2D" uid="uid://b1ibhmwvj21c1" path="res://Assets/Placeholders/dust2.png" id="7_cmu2r"]
 [ext_resource type="Texture2D" uid="uid://dxvutt3bv4x3r" path="res://Assets/WallFloorDoorWstroke/middle_left_wall.png" id="7_sxluj"]
@@ -698,7 +697,6 @@ tile_map_data = PackedByteArray(0, 0, 11, 0, 249, 255, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_a2agt")
 
 [node name="World" type="Node2D" parent="." unique_id=1194276524]
-script = ExtResource("6_fq71w")
 
 [node name="Tasks" type="Node" parent="World" unique_id=1079963648]
 
@@ -1127,6 +1125,7 @@ script = ExtResource("50_44eka")
 [node name="pomrat" parent="World/Animals/pomrat" unique_id=266082682 instance=ExtResource("49_mkkvt")]
 position = Vector2(278, 250.55855)
 scale = Vector2(0.1, 0.1)
+collision_mask = 2
 
 [node name="lizard" type="Node2D" parent="World/Animals" unique_id=1595683391]
 scale = Vector2(1, 1.0023537)
