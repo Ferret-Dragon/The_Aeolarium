@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dr4tigmn7gjtj" path="res://Assets/Critters/lizard_tail_seg2.png" id="4_nd7il"]
 [ext_resource type="Texture2D" uid="uid://dsjnwcgrjoj4w" path="res://Assets/Critters/lizard_tail_seg1.png" id="5_cbse5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irq0c"]
+size = Vector2(609, 212)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbse5"]
 atlas = ExtResource("1_nd7il")
 region = Rect2(0, 0, 1920, 1920)
@@ -49,9 +52,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irq0c"]
-size = Vector2(609, 212)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yap1v"]
 size = Vector2(1026, 775)
 
@@ -59,46 +59,48 @@ size = Vector2(1026, 775)
 collision_mask = 2
 script = ExtResource("1_yap1v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=795217070]
-position = Vector2(357, 75)
-sprite_frames = SubResource("SpriteFrames_yap1v")
-offset = Vector2(-357, -75)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438474042]
 position = Vector2(36.5, 94)
 shape = SubResource("RectangleShape2D_irq0c")
 
-[node name="tail_segment_1" type="Node2D" parent="." unique_id=1891487009]
+[node name="zirelisk" type="Sprite2D" parent="." unique_id=1555304370]
 
-[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1" unique_id=1437376286]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zirelisk" unique_id=795217070]
+position = Vector2(357, 75)
+sprite_frames = SubResource("SpriteFrames_yap1v")
+offset = Vector2(-357, -75)
+
+[node name="Timer" type="Timer" parent="zirelisk" unique_id=1318878859]
+
+[node name="tail_segment_1" type="Node2D" parent="zirelisk" unique_id=1891487009]
+
+[node name="Sprite2D" type="Sprite2D" parent="zirelisk/tail_segment_1" unique_id=1437376286]
 position = Vector2(375, 88)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("5_cbse5")
 offset = Vector2(821.8182, 67.27272)
 
-[node name="tail_segment_2" type="Node2D" parent="tail_segment_1" unique_id=1427541434]
+[node name="tail_segment_2" type="Node2D" parent="zirelisk/tail_segment_1" unique_id=1427541434]
 
-[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1/tail_segment_2" unique_id=1973583360]
+[node name="Sprite2D" type="Sprite2D" parent="zirelisk/tail_segment_1/tail_segment_2" unique_id=1973583360]
 position = Vector2(626, 98)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_nd7il")
 offset = Vector2(170, 45.000015)
 
-[node name="tail_segment_3" type="Node2D" parent="tail_segment_1/tail_segment_2" unique_id=1584085649]
+[node name="tail_segment_3" type="Node2D" parent="zirelisk/tail_segment_1/tail_segment_2" unique_id=1584085649]
 
-[node name="Sprite2D" type="Sprite2D" parent="tail_segment_1/tail_segment_2/tail_segment_3" unique_id=1280672714]
+[node name="Sprite2D" type="Sprite2D" parent="zirelisk/tail_segment_1/tail_segment_2/tail_segment_3" unique_id=1280672714]
 position = Vector2(933, 128)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_yap1v")
 offset = Vector2(-502.85718, 18.571411)
 
-[node name="Timer" type="Timer" parent="." unique_id=1318878859]
+[node name="Area2D" type="Area2D" parent="zirelisk" unique_id=438277010]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=438277010]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1479545412]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zirelisk/Area2D" unique_id=1479545412]
 position = Vector2(-135, 34.5)
 shape = SubResource("RectangleShape2D_yap1v")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=508720998]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="zirelisk" unique_id=508720998]
 path_postprocessing = 2

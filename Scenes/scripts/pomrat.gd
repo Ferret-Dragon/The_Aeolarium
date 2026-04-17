@@ -12,7 +12,7 @@ const WANDER_INTERVAL_MAX = 0.7
 var _ready_complete := false
 var _wandering := false
 var home_pos = Vector2(278, 250.55)
-var exit_pos = Vector2(400, 150)
+var exit_pos = Vector2(420, 140)
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -26,7 +26,11 @@ func _ready() -> void:
 	detection_area.body_entered.connect(_on_body_entered)
 	_ready_complete = true
 
-func _physics_process(_delta: float) -> void:
+var rock_time := 0.0
+
+func _physics_process(delta: float) -> void:
+	rock_time += delta
+	rotation = sin(rock_time * 3.0) * 0.5
 	if nav_agent.is_navigation_finished():
 		anim.play("default")
 		return
@@ -56,6 +60,7 @@ func _go_home() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player_Character":
 		Global.pomrat_escaped = false
+		Global.pomrat_contentment = 100
 		_go_home()
 
 func start_wandering() -> void:

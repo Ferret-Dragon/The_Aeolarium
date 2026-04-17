@@ -5,16 +5,17 @@ var segment_history: Array = []
 var history_length: int = 0
 
 @export var segment_distance: int = 0
-@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim_sprite: Sprite2D = $zirelisk
 
 const SPEED = 200.0
-const WANDER_INTERVAL_MIN = 0.5
+const WANDER_INTERVAL_MIN = 1.0
 const WANDER_INTERVAL_MAX = 3.7
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var timer: Timer = $Timer
-@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var detection_area: Area2D = $Area2D
+@onready var anim: AnimatedSprite2D = $zirelisk/AnimatedSprite2D
+@onready var mina: Sprite2D = $zirelisk
+@onready var timer: Timer = $zirelisk/Timer
+@onready var nav_agent: NavigationAgent2D = $zirelisk/NavigationAgent2D
+@onready var detection_area: Area2D = $zirelisk/Area2D
 
 var _ready_complete := false
 var _wandering := false
@@ -22,12 +23,12 @@ var home_pos = Vector2(679.0, 199.179)
 var exit_pos = Vector2(400, 150)
 
 func _ready():
-	segments.append($tail_segment_1)
-	segments.append($tail_segment_1/tail_segment_2)
-	segments.append($tail_segment_1/tail_segment_2/tail_segment_3)
+	segments.append($zirelisk/tail_segment_1)
+	segments.append($zirelisk/tail_segment_1/tail_segment_2)
+	segments.append($zirelisk/tail_segment_1/tail_segment_2/tail_segment_3)
 	for i in range(history_length):
 		segment_history.append(global_position)
-	anim_sprite.play("default")
+	anim.play("default")
 	
 	set_physics_process(false)
 	await get_tree().physics_frame
@@ -48,11 +49,13 @@ func _physics_process(_delta: float) -> void:
 	var direction := (next_pos - global_position).normalized()
 	velocity = direction * SPEED
 	move_and_slide()
+
 	if direction.x != 0:
-		anim.flip_h = direction.x < 0
+		anim_sprite.flip_h = direction.x > 0  # true = moving right, false = moving left
+
 	anim.play("default")
 	_update_tail()
-
+	
 func _update_tail():
 	segment_history.insert(0, global_position)
 	if segment_history.size() > history_length:
@@ -84,6 +87,7 @@ func _go_home() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player_Character":
 		_go_home()
+		Global.lizard_contentment = 100
 
 func start_wandering() -> void:
 	if not _ready_complete:
