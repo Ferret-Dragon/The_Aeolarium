@@ -5,7 +5,7 @@ const DRAIN_RATE_RAT: float = 5.3
 const MIN_CONTENTMENT: float = 0.0
 
 var escape_check_timer: float = 0.0
-var escape_check_interval: float = 5.0
+var escape_check_interval: float = 10.0
 
 func _process(delta):
 	Global.lizard_contentment = max(MIN_CONTENTMENT, Global.lizard_contentment - DRAIN_RATE_LIZ * delta)
