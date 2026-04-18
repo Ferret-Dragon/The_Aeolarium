@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b6lgarhmtcsh1" path="res://Scenes/h_slider.gd" id="2_f2fbv"]
 [ext_resource type="Script" uid="uid://bidcsbliu0y7a" path="res://Scenes/area_2d.gd" id="4_bhm8t"]
 [ext_resource type="FontFile" uid="uid://scrmu3wbwn11" path="res://Assets/Fonts/DS-DIGIB.TTF" id="5_42st4"]
+[ext_resource type="Script" uid="uid://ciiwjgs3r5rjn" path="res://Scenes/scripts/task_music.gd" id="6_h0r86"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bhm8t"]
 
@@ -83,3 +84,6 @@ scale = Vector2(26.333427, 13.816904)
 color = Color(0, 0.10169991, 0.014807053, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=636616634]
+
+[node name="task_music" type="AudioStreamPlayer" parent="." unique_id=1615268856]
+script = ExtResource("6_h0r86")

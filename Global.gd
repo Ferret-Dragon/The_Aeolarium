@@ -15,6 +15,9 @@ var player_position_saved: bool = false
 var ship_power: float = 100.0
 var max_ship_power: float = 100.0
 
+# In Global.gd
+var music: AudioStreamPlayer = null
+
 # Steam regenerates power over time
 var steam_pressure: float = 100.0
 var max_steam_pressure: float = 100.0

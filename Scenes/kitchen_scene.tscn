@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8jjxc3idiicq" path="res://Assets/Items/liz_food.png" id="5_ykgh2"]
 [ext_resource type="Script" uid="uid://dacgfmvkoguox" path="res://Scenes/scripts/liz_food.gd" id="7_cnx1n"]
 [ext_resource type="Script" uid="uid://bidcsbliu0y7a" path="res://Scenes/area_2d.gd" id="8_cnx1n"]
+[ext_resource type="Script" uid="uid://ciiwjgs3r5rjn" path="res://Scenes/scripts/task_music.gd" id="9_0qxo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qxo4"]
 size = Vector2(257.8838, 364.15118)
@@ -73,3 +74,6 @@ script = ExtResource("8_cnx1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1613715338]
 position = Vector2(583, 118)
 shape = SubResource("RectangleShape2D_jf5on")
+
+[node name="task_music" type="AudioStreamPlayer" parent="." unique_id=2019211403]
+script = ExtResource("9_0qxo4")
