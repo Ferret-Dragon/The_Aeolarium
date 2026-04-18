@@ -8,6 +8,7 @@ Resources used for the animals drains power from the ship.  Head to the back of 
 
 ## To Be Added
 There are some bugs with the movement of the animals.  There was initially going to be a log book with information about each passenger.  The Zirelisk is meant to have poisonous scales, so the player would need to wear gloves before coming in contact.  The pomrats escape would risk ships power, and cause random stats to drain (as they consume resources that they come across).  The player would also ideally be able to eat while in the kitchen to allow them to regain energy stats and move faster around the ship.
+** I would like to continue making changes to this project, although since it is for a class assignment, I will keep the changes on a new branch until the project is graded to separate the changes made before and after the deadline.
 
 ## Credits
 FabienC@RustedMusicStudio on Itch.io [malfunction.ogg, minimum.ogg]
