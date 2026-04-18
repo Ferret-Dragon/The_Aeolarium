@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsjnwcgrjoj4w" path="res://Assets/Critters/lizard_tail_seg1.png" id="5_cbse5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irq0c"]
-size = Vector2(609, 212)
+size = Vector2(353, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbse5"]
 atlas = ExtResource("1_nd7il")
@@ -53,14 +53,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yap1v"]
-size = Vector2(1026, 775)
+size = Vector2(662, 245)
 
 [node name="lizard" type="CharacterBody2D" unique_id=1555310499]
 collision_mask = 2
 script = ExtResource("1_yap1v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438474042]
-position = Vector2(36.5, 94)
+position = Vector2(69.5, 77.5)
 shape = SubResource("RectangleShape2D_irq0c")
 
 [node name="zirelisk" type="Sprite2D" parent="." unique_id=1555304370]
@@ -99,7 +99,7 @@ offset = Vector2(-502.85718, 18.571411)
 [node name="Area2D" type="Area2D" parent="zirelisk" unique_id=438277010]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zirelisk/Area2D" unique_id=1479545412]
-position = Vector2(-135, 34.5)
+position = Vector2(47, 74.5)
 shape = SubResource("RectangleShape2D_yap1v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="zirelisk" unique_id=508720998]

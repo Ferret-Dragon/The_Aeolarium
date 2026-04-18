@@ -16,10 +16,10 @@ extends CanvasLayer
 	lizard_bar.value = Global.lizard_contentment
 	pomrat_bar.value = Global.pomrat_contentment'''
 	
-const STEAM_REGEN_RATE: float = 2.5
+const STEAM_REGEN_RATE: float = 2.0
 const STEAM_TO_POWER_RATE: float = 3.0
 const LIGHT_DRAIN_MAX: float = 3.0
-const BASE_DRAIN: float = 1.0
+const BASE_DRAIN: float = 2.0
 
 @onready var canvas_modulate = get_tree().get_first_node_in_group("canvas_modulate")
 
