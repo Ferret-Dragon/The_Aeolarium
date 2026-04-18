@@ -1102,7 +1102,6 @@ tile_set = SubResource("TileSet_k2x3g")
 script = ExtResource("36_vdfna")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Layers/Layout/Animals/glass/lizard_glass" unique_id=1739832884]
-visible = false
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Layers/Layout/Animals/glass/lizard_glass/StaticBody2D" unique_id=1183728392]
