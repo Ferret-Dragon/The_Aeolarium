@@ -55,7 +55,6 @@
 [ext_resource type="Script" uid="uid://cw2odxxxlxnhi" path="res://Scenes/scripts/lizard_walk.gd" id="49_m3bm7"]
 [ext_resource type="PackedScene" uid="uid://bu06oclm62yd8" path="res://Scenes/Entities/Pomrat/pomrat.tscn" id="49_mkkvt"]
 [ext_resource type="Script" uid="uid://dmqw1lnlvxxaj" path="res://Scenes/scripts/pomrat_walk.gd" id="50_44eka"]
-[ext_resource type="AudioStream" uid="uid://bsbxks3de3fnb" path="res://Assets/Audio/Nightwalk.ogg" id="56_aoomy"]
 [ext_resource type="Script" uid="uid://u4nw7yvmd4i6" path="res://Scenes/scripts/audio_stream_player_2d.gd" id="57_43epo"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6q42r"]
@@ -1204,7 +1203,6 @@ position = Vector2(-2.3841858e-07, -1.1920929e-07)
 scale = Vector2(1, 1.0017618)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=529045602]
-stream = ExtResource("56_aoomy")
 script = ExtResource("57_43epo")
 
 [connection signal="body_entered" from="World/Tasks/boiler_area" to="Player_Character" method="_on_area_2d_body_entered"]
