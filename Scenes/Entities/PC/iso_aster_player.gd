@@ -17,6 +17,7 @@ signal energy_updated(new_energy)
 signal health_updated(new_health)
 
 func _ready():
+	show()
 	energy_timer.timeout.connect(_on_energy_timer_timeout)
 	energy_timer.start()
 	if Global.player_position_saved:
@@ -47,8 +48,12 @@ func _physics_process(_delta: float) -> void:
 	var anim_name: String = ("walk_" if is_moving else "idle_") + facing_direction
 	if _player_sprite.animation != anim_name:
 		_player_sprite.play(anim_name)
+	if Global.ship_power <= 0:
+		velocity = Vector2.ZERO
+		hide()
+	else:
+		velocity = input_vector * speed
 
-	velocity = input_vector * speed
 	move_and_slide()
 
 func _on_energy_timer_timeout():
