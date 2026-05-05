@@ -739,6 +739,7 @@ scale_amount_curve = SubResource("Curve_44eka")
 [node name="World" type="Node2D" parent="." unique_id=1194276524]
 
 [node name="Darkness" type="Node2D" parent="World" unique_id=1680040576]
+z_index = 100
 
 [node name="Polygon2D" type="Polygon2D" parent="World/Darkness" unique_id=2031529139]
 color = Color(0, 0, 0, 1)

@@ -2,4 +2,10 @@ KayKit : Furniture Bits
 2D School Classroom Asset Pack by styloo
 Isometric Prototypes Tiles by Kenney
 
-Claude was used for debgugging
+Claude was used for debgugging:
+	charge.gd
+	iso_aster_player.gd
+	layers.gd (63-77)
+	rooms.gd
+
+JDSherbert - Ambiences Music Pack - Itch.io
